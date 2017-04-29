@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NoteData } from '../models/note-data';
-import * as faker from 'faker';
 
 @Component({
   selector: 'sn-note',
@@ -42,11 +41,8 @@ import * as faker from 'faker';
 })
 export class NoteComponent implements OnInit {
 
-  noteData: NoteData;
+  @Input() noteData: NoteData;
 
-  constructor() {
-   this.noteData = new NoteData(faker.random.words(2), faker.random.words(10));
-  }
 
   ngOnInit() {
   }
