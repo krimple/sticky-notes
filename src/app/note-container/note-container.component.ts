@@ -8,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
     <sn-note></sn-note>
     <sn-note></sn-note>
     <sn-note></sn-note>
+    <sn-note></sn-note>
+    <sn-note></sn-note>
+    <sn-note></sn-note>
   `,
   styles: [`
     :host {
@@ -22,5 +25,4 @@ export class NoteContainerComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }
