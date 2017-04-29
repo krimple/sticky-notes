@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="toolbar">
+    <button (click)="toggleEdit()">
+      {{ editing ? 'Finish' : 'Edit' }}
+    </button>
+  </div>
+  <div class="title" *ngIf="!editing">
+    <span>{{ noteData.title }}</span>
+  </div>
+  <div class="title-editing" *ngIf="editing">
+    <h3>Edit Title</h3>
+    <input type="text" [(ngModel)]="noteData.title">
+  </div>
+  <div class="content" *ngIf="!editing">
+    <span>{{ noteData.content }}</span>
+  </div>
+  <div class="content-editing" *ngIf="editing">
+    <h3>Edit content</h3>
+    <textarea [(ngModel)]="noteData.content"
+              rows="5" cols="40"></textarea>
+  </div>
+</div>
