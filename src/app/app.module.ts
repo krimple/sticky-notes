@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { NoteComponent } from './note/note.component';
 import { NoteContainerComponent } from './note-container/note-container.component';
+import { NoteService } from './note.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { NoteContainerComponent } from './note-container/note-container.componen
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [NoteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
