@@ -15,6 +15,7 @@ import { Component, OnInit } from '@angular/core';
   styles: [`
     .container {
       width: 300px;
+      margin: 5px;
       padding: 10px;
       border: 1px solid black;
       background-color: blanchedalmond;
