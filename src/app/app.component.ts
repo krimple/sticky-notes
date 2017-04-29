@@ -9,7 +9,7 @@ console.log(`Environment is ${JSON.stringify(environment)}`);
      Sticky Notes 
     </h1>
     <hr>
-    <sn-note></sn-note>
+    <sn-note-container></sn-note-container>
   `,
   styles: []
 })
