@@ -6,8 +6,10 @@ console.log(`Environment is ${JSON.stringify(environment)}`);
   selector: 'sn-root',
   template: `
     <h1>
-      Hello, Angular 4 Students
+     Sticky Notes 
     </h1>
+    <hr>
+    <sn-note></sn-note>
   `,
   styles: []
 })
