@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NoteData } from '../models/note-data';
 import * as faker from 'faker';
+import { NoteService } from '../note.service';
 
 @Component({
   selector: 'sn-note-container',
@@ -19,12 +20,8 @@ export class NoteContainerComponent implements OnInit {
 
   noteData: NoteData[] = [];
 
-  constructor() {
-    for (let i = 0; i < 30; i++) {
-      this.noteData.push(
-        new NoteData(faker.random.words(2), faker.random.words(15))
-      );
-    }
+  constructor(private noteService: NoteService) {
+   this.noteData = noteService.generateNotes(30);
   }
 
   ngOnInit() {
