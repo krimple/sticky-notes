@@ -1,21 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import { NoteData } from '../models/note-data';
+import * as faker from 'faker';
 
 @Component({
   selector: 'sn-note',
   template: `
     <div class="container">
       <div class="title">
-        {{ title }}
+        {{ noteData.title }}
       </div>
       <div class="content">
-        {{ content }}
+        {{ noteData.content }}
       </div>
     </div>
   `,
   styles: [`
+    :host {
+     margin: 15px 
+    }
     .container {
       width: 300px;
-      margin: 5px;
       padding: 10px;
       border: 1px solid black;
       background-color: blanchedalmond;
@@ -38,10 +42,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NoteComponent implements OnInit {
 
-  title = 'I am the title';
-  content = 'This is a note';
+  noteData: NoteData;
 
-  constructor() { }
+  constructor() {
+   this.noteData = new NoteData(faker.random.words(2), faker.random.words(10));
+  }
 
   ngOnInit() {
   }

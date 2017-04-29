@@ -22,4 +22,8 @@ describe('NoteComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should contain note data', () => {
+    expect(component.noteData).toBeDefined();
+  });
 });
