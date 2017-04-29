@@ -5,7 +5,8 @@ import * as faker from 'faker';
 @Component({
   selector: 'sn-note-container',
   template: `
-    <sn-note *ngFor="let noteDataItem of noteData" [noteData]="noteDataItem"></sn-note>
+    <sn-note *ngFor="let noteDataItem of noteData" 
+             [noteData]="noteDataItem"></sn-note>
   `,
   styles: [`
     :host {
