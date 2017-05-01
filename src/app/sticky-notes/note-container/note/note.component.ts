@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { NoteData } from '../models/note-data';
+import { NoteData } from '../../models/note-data';
 
 @Component({
   selector: 'sn-note',

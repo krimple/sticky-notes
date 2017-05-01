@@ -2,7 +2,7 @@ import { async, ComponentFixture, getTestBed, TestBed } from '@angular/core/test
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { NoteContainerComponent } from './note-container.component';
-import { NoteComponent } from '../note/note.component';
+import { NoteComponent } from './note/note.component';
 import { FormsModule } from '@angular/forms';
 import { NoteService } from '../note.service';
 

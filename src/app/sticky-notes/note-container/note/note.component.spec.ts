@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { NoteComponent } from './note.component';
-import { NoteData } from '../models/note-data';
+import { NoteData } from '../../models/note-data';
 
 describe('NoteComponent', () => {
   let component: NoteComponent;
