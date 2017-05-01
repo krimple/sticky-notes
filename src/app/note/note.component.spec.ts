@@ -57,9 +57,13 @@ describe('NoteComponent', () => {
   });
 
   it('should toggle editing when button is clicked', () => {
+    spyOn(component.onChangesSaved, 'next');
     expect(component.editing).toBe(false);
+
+    // edit mode
     fixture.detectChanges();
     editButton.click();
+
     // now, time must pass and the component must digest the action and change its template
     fixture.detectChanges();
     expect(component.editing).toBe(true);
@@ -74,5 +78,6 @@ describe('NoteComponent', () => {
     expect(contentDivs.length).toBe(1);
     expect(titleEditingDivs.length).toBe(0);
     expect(contentEditingDivs.length).toBe(0);
+    expect(component.onChangesSaved.next).toHaveBeenCalledTimes(1);
   });
 });
