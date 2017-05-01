@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NoteData } from '../models/note-data';
 
 @Component({
@@ -9,6 +9,8 @@ import { NoteData } from '../models/note-data';
 export class NoteComponent implements OnInit {
 
   @Input() noteData: NoteData;
+  @Output() onChangesSaved = new EventEmitter<void>();
+
 
   editing = false;
 
@@ -16,6 +18,10 @@ export class NoteComponent implements OnInit {
   }
 
   toggleEdit() {
+    if (this.editing) {
+      this.onChangesSaved.next();
+    }
+    // toggle state
     this.editing = !this.editing;
   }
 

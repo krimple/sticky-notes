@@ -7,7 +7,8 @@ import { NoteService } from '../note.service';
   selector: 'sn-note-container',
   template: `
     <sn-note *ngFor="let noteDataItem of noteData" 
-             [noteData]="noteDataItem"></sn-note>
+             [noteData]="noteDataItem"
+             (onChangesSaved)="persistNotes()"></sn-note>
   `,
   styles: [`
     :host {
@@ -21,9 +22,18 @@ export class NoteContainerComponent implements OnInit {
   noteData: NoteData[] = [];
 
   constructor(private noteService: NoteService) {
-   this.noteData = noteService.generateNotes(30);
+    if (!noteService.hasNotes()) {
+      this.noteData = noteService.generateNotes(30);
+      noteService.saveNotes(this.noteData);
+    } else {
+      this.noteData = noteService.loadNotes();
+    }
   }
 
-  ngOnInit() {
+ ngOnInit() {
+ }
+
+ persistNotes() {
+   this.noteService.saveNotes(this.noteData);
  }
 }
