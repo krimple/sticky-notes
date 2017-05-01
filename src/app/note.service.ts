@@ -23,6 +23,6 @@ export class NoteService {
   }
 
   loadNotes(): NoteData[] {
-    return JSON.parse(localStorage.get('notes') || '[]');
+    return JSON.parse(localStorage.getItem('notes') || '[]');
   }
 }
