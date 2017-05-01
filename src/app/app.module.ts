@@ -4,22 +4,18 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { NoteComponent } from './note/note.component';
-import { NoteContainerComponent } from './note-container/note-container.component';
-import { NoteService } from './note.service';
+import { StickyNotesModule } from './sticky-notes';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NoteComponent,
-    NoteContainerComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    StickyNotesModule
   ],
-  providers: [NoteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
