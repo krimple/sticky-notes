@@ -9,7 +9,7 @@ import { NoteData } from '../../models/note-data';
 export class NoteComponent implements OnInit {
 
   @Input() noteData: NoteData;
-  @Output() onChangesSaved = new EventEmitter<void>();
+  @Output() onChangesSaved = new EventEmitter<NoteData>();
 
 
   editing = false;
@@ -19,7 +19,7 @@ export class NoteComponent implements OnInit {
 
   toggleEdit() {
     if (this.editing) {
-      this.onChangesSaved.next();
+      this.onChangesSaved.next(this.noteData);
     }
     // toggle state
     this.editing = !this.editing;

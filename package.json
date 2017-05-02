@@ -4,11 +4,14 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "npm-run-all --parallel start-dev start-json",
+    "start-dev": "ng serve --proxy-config proxy-config.json",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "start-dev": "ng serve --proxy-config proxy-config.json",
+    "start-json": "json-server db.json --routes proxy-routes.json --watch"
   },
   "private": true,
   "dependencies": {
@@ -33,12 +36,14 @@
     "codelyzer": "~2.0.0",
     "jasmine-core": "~2.5.2",
     "jasmine-spec-reporter": "~3.2.0",
+    "json-server": "^0.10.0",
     "karma": "~1.4.1",
     "karma-chrome-launcher": "~2.0.0",
     "karma-cli": "~1.0.1",
+    "karma-coverage-istanbul-reporter": "^0.2.0",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
-    "karma-coverage-istanbul-reporter": "^0.2.0",
+    "npm-run-all": "^4.0.2",
     "protractor": "~5.1.0",
     "ts-node": "~2.0.0",
     "tslint": "~4.5.0",

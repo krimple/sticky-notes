@@ -1,3 +1,3 @@
 export class NoteData {
-  constructor(public title: string, public content: string) { }
+  constructor(public title: string, public content: string, public id?: number) { }
 }
