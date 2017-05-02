@@ -22,6 +22,7 @@ export class NoteContainerComponent implements OnInit {
   noteData: NoteData[] = [];
 
   constructor(private noteService: NoteService) {
+      noteService.initialize();
       noteService.loadNotes()
         .then((data: NoteData[]) => {
           this.noteData = data;

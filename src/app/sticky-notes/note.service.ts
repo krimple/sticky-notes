@@ -8,7 +8,9 @@ import 'rxjs/add/operator/map';
 export class NoteService {
 
   // on the way up - if we don't have any notes, generate them
-  constructor(private http: Http) {
+  constructor(private http: Http) { }
+
+  initialize() {
     const self = this;
     this.hasNotes()
       .then((hasNotesResult: boolean) => {
@@ -21,7 +23,7 @@ export class NoteService {
   }
 
   generateNote(): NoteData {
-    return new NoteData(faker.random.words(2), faker.random.words(15))
+    return new NoteData(faker.random.words(2), faker.random.words(15));
   }
 
   hasNotes() {
@@ -40,14 +42,16 @@ export class NoteService {
     });
   }
 
-  saveNote(note: NoteData) {
-    let call;
-    if (note.id) {
-      call = this.http.put('api/notes/' + note.id, note)
-    } else {
-      call = this.http.post('api/notes', note)
-    }
-    call.subscribe(() => {}, (error) => { throw new Error(`Save failed. ${error}`); });
+  saveNote(note: NoteData): Promise<boolean> {
+    return new Promise<boolean>((resolve, reject) => {
+      let call;
+      if (note.id) {
+        call = this.http.put('api/notes/' + note.id, note);
+      } else {
+        call = this.http.post('api/notes', note);
+      }
+      call.subscribe(() => {}, (error) => { throw new Error(`Save failed. ${error}`); });   resolve(true);
+    });
   }
 
   loadNotes(): Promise<NoteData[]> {
