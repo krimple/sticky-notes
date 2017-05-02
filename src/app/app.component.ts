@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { environment } from '../environments/environment';
+import { Http } from '@angular/http';
 
 console.log(`Environment is ${JSON.stringify(environment)}`);
 @Component({
@@ -14,4 +15,7 @@ console.log(`Environment is ${JSON.stringify(environment)}`);
   styles: []
 })
 export class AppComponent {
+  constructor(http: Http) {
+    window['http'] = http;
+  }
 }
